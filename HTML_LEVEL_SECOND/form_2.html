@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Form2</title>
+  </head>
+  <body>
+
+    <!-- Aktywowanie formularza po naciśnięciu przycisku Submit
+    Atrybut ACTION w znacniku FORM określa zdarzenie jakie nastąpi po naciśnięciu przycisku typu Submit.
+    W momencie wypełnienia pól formularza danymi odpowiadającymi im cechom dzieja się następujące rzeczy:
+    1. jeżeli wpiszemy w ten atrybut stronę WWW wówczas zostaniemy przekierowani na tą stronę,
+    2. dane wprowadzone w formularzu zostają dodane do adresu strony internetowej do której jesteśmy przekierowywani.
+       wówczas adres wygląda następująco:
+       https://www.facebook.com/?userinput=test&useremail=test%40test.pl ,
+       jak widać pomimo, że załadowała się główna strona Facebook`a to do adresu zostały dodane dane z formularza,
+       do adresu trafiają informacje z większości (z tych które są swego rodzaju tekstowe) pól jakie użyliśmy w formularzu,
+       na razie one nie są jeszcze wykorzystywane,
+       informacje te są widoczne ponieważ użyliśmy metody (METHOD) GET, mówi ona, że jawnie przekazujemy dane z formularza do adresu http(s)
+
+       BARDZO WAŻNE - informacje które wprowadziliśmy w formularzu są, oprócz tego, że przekazywane do adresu hhtp(s)
+       to jeszcze są przechowywane, jako takie zmienne, pod nazwami NAME typów pól (np. userinput) ALBO bezpośrednio pod ich typami (np TEXT)
+     -->
+
+     <h3>Aktywacja przycisku SUBMIT</h3>
+
+    <form action="https://www.onet.pl" method="post">
+      <p>Enter Text and take me to FB:</p>
+      <input type="text" name="userinput" value=""><br>
+      <input type="color" name="usercolor" value=""><br>
+      <input type="date" name="userbday"><br>
+      <input type="email" name="useremail" value=""><br>
+      <input type="submit" name="" value="Submit">
+    </form>
+
+    <!-- Użwyanie etykiet LABEL do formularzy
+
+    1. Sposób bez używania etykiet. Jeżeli stworzymy formularz tak jak pniżej, wówczas informujemy użytkownika co chcemy aby wprowadził poprzez tekst umieszczonyt w akapitach P
+       powoduje to, że tekst informujący jak i pola formuklarza są od siebie odsunięte i poniżej siebie-->
+
+    <h3>Tekty informacyjne przy użyciu P:</h3>
+
+    <form>
+      <p>Enter Your email:</p>
+      <input type="email" name="" value="">
+      <p>Enter Your name:</p>
+      <input type="text" name="" value="">
+      <p>Enter Your last name:</p>
+      <input type="text" name="" value="">
+    </form>
+
+    <!--
+    2.1 Sposób to zamiast stosowania akapitów P wówczas tekst infprmujący oraz znacznik INPUT
+        umieszczamy miedzy znacznikiem LABEL. Spowoduje to, że tekst informujący będzie obok pola fomularza.
+        Jednak ten sposób mimo, że lepszy to nadal nie jest doskonały ponieważ kilka rzy użyliśmy znacnzika LABEL.-->
+
+    <h3>Teksty informacyjne przy użyciu LABEL</h3>
+
+    <h4>1. Sposób</h4>
+
+    <form>
+      <label>Enter email:
+        <input type="email" name="" value="">
+      </label>
+      <br>
+      <label>Enter name:
+        <input type="text" name="" value="">
+      </label>
+      <br>
+      <label>Enter last name:
+        <input type="text" name="" value="">
+      </label>
+    </form>
+
+    <!--
+    2.2 Sposób to uzycie w znaczniku LABEL atrybutu FOR za pomocą którego będziemy informować któremu polu formularza będziemy przypisywac etykietę.
+        To co wpiszemy w atrybut FOR znacznika LABEl musimy póżniej powtórzyć jako ID w znaczniku INPUT. Jest to tak zwane idywidualny LABEL
+        Różnica między dwoma sposobami LABEL jest taka, że w tym przypadku otwieramy znacznik i zamykamy za tekstem który ma być etykietą.
+        Jednak LABEl stosujemy przed INPUT i muszą one być po koleii. Nie możemy umieścić najpierw kilka LABEl a później tyle samo INPUT. Muszą być jeden pod drugim po kolei -->
+
+    <h4>2. Sposób</h4>
+
+    <form>
+      <label for="userinputemail">Enter email:</label>
+      <input id="userinputemail" type="email" name="" value="">
+      <br>
+      <label for="userinputname">Enter name:</label>
+      <input id="userinputname" type="text" name="" value="">
+      <br>
+      <label for="userinputlast">Enter last name:</label>
+      <input id="userinputlast" type="text" name="" value="">
+    </form>
+
+    <h3>Required, Placeholder zamiast Value</h3>
+
+    <!-- Używając pól formularzy, które użytkownik musi wypełnić jakimś tekstem, liczbami itp, mamy możliwość wstępnego wypełnienia takego pola, przed samym uzytkownikiem, np. tekstem: Wprowadź swoje imię.
+    Aby to uczynić musimy wykorzystac jeden z dwóch atrybutów:
+    1. VALUE - wówczas tekst będzie "fizycznym tekstem", kóre użytkownik musi wykasować aby wpisać coś swojego,
+    2. PLACEHOLDER - wówczas tekst będzie swego rodzaju tłem w tym polu formularza. Użytkownik nie będzie musiał go wykasowywać ponieważ po kliknięciu w takie pole tekst sam się wykasuje.
+
+    Ważnym atrybutem jest również REQUIRED / NOTREQUIRED - atrybut ten bez żadnej wartości oznacza, że dane pole musi być wypełnione w momencie kliknięcia przycisku typu SUBMIT.
+    Jeżeli w takim polu nic nie będzie, wówczas przeglądarka poinformuje nas o konieczności uzupełnienia pola, dopiero wówczas zajdzie akcja umieszczona w ACTION.
+    UWAGA! Należy uważać na jednoczesne stosowanie atrybutu VALUE oraz REQUIRED. Jeżeli połączymi je razem a użytkowik nie wprowadzi tekstu swojego tylko pozostawi to co użyliśmy jako wartości VALUE,
+    to SUBMIT zadziałą ponieważ, tak jak wczesniej było wspominane, VALUE oznacza "fizyczny tekst".
+    NOTREQUIRED oznacza, że to pole jest nie wymagane do zajścia akcji w momencie naciskania przycisku SUBMIT. Nie jest jednocześnie wymagane stosowanie NOTREQUIRED.
+    UWAGA! w przypadku radiobutton lub checkbox wystarczy umieścić przy jednym znaczniku INPUT, jezeli jest on "spięty" w jednej grupie z innymi przy użyciu tego samego atrybutu NAME -->
+
+    <form>
+      <input type="text" name="" value="Wprowadź imię" required>
+      <input type="text" name="" placeholder="Wprowadź imię" notrequired>
+      <input type="submit" name="" value="SUBMIT">
+    </form>
+
+  </body>
+</html>

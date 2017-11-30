@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Form3</title>
+  </head>
+  <body>
+
+    <!-- Ważnym przy używaniu pól formularzy dających wybór użytkownikowi (np. radiobutton, checkbox, select) jest uzupełnianie atrybutów NAME oraz VALUE.
+
+    W celu przypomnienia należy używać znacznika LABEL do tworzenia etykiet dla pól formularzy. Należy podkreślić, że LABEL to tylko etykieta.
+
+    W kontekście tego przypomnienia bardzo ważne staje się uzupełnianie NAME oraz VALUE.
+    NAME - jest wymagane aby po pierwsze "spiąć" w jedną grupę, pewną, liczbę checkbox bądź radiobutton (najczęściej dotyczących tego samego zagadnienia)
+           a po drugie, równie ważne, jest nadanie tej grupie nazwy aby można było przekazać wartość umieszczoną w VALUE do adresu http(s) po kliknięciu SUBMIT.
+           Wysłana wartość VALUE do adresu będzie pod zmienną NAME.
+           Nadanie nazwy jest równie ważne ponieważ później możemy użyć javascript do przeszukiwania wartości wybranych przez użytkowniak i dokonywać różnych akcji.
+           Przeszkiwanie następuje po NAME a później jest sprawdzane VALUE
+    VALUE - przypisanie danemu polu formularza (najczęściej coś co wybiera użytkownik, a nie sam wpisuje) wartości. I ta przypisana wartość jest póżniej wysyłana
+            po kliknięciu w przycisk SUBMIT do adresu http(s). Jak rownież ta wartość będzie brała udział w programiowaniu javascript.
+            A więc nie ma znaczenia to co wpiszemy w jako etykieta LABEL a to co wpiszemy w VALUE. Ponieważ tak naprawdę to tak naprawde jest uznawane za wybór użytkownika.
+            Tak ważne jest aby skorelować etykietę LABEL z VALUE. -->
+
+    <h1>Hotel Feedback Form</h1>
+
+    <form method="get">
+      <h2>Are you from inside the US? Or outside the US?</h2>
+
+      <label for="inside">Inside: </label>
+      <input id="inside" type="radio" name="location" value="inside">
+      <label for="outside">Outside: </label>
+      <input id="outside" type="radio" name="location" value="outside">
+
+      <h2>Any addition do you want (extra paid) ?</h2>
+      <label for="towelid">Towel</label>
+      <input id="towelid" type="checkbox" name="addition" value="towel">
+      <label for="soapid">Soap</label>
+      <input id="soapid" type="checkbox" name="addition" value="soap">
+      <label for="TVid">TV</label>
+      <input id="TVid" type="checkbox" name="addition" value="TV">
+
+      <!-- Kolejnym znacznikiem wykorzystywanym do umożliwenia wyboru użytkownikowi jest SELECT. Tworzy on listę rozwijaną.
+      Nadanie nazwie NAME tej liście spowoduje przesłanie wyboru do adresu http(s) oraz umożliwi interakcję z javascript.
+      Pomiędzy znacznikami SELECT wstawiamy znaczniki OPTION w takiej ilości ile chcemy mieć możliwości wyboru.
+      Co prawda w tym przypadku nie używamy LABEL ponieważ etykietę tworzymy poprzez tekst umieszczony między OPTION.
+
+      W poniższym przykładzie widać, że etykieta wyświetlana inną informację użytkownikowi a inna wartość jest przesyłana do adresu http(s).
+      Czyli róznicę między front-endem a back-endem. Można inaczej informować użytkownika, w przystępniejszej formie, a pobierać z tego dane już w formie w innej formie.
+      Na przykład użytkownik będzie wybierać, że pobyt w hotelu był "Okay", a do serwera będzie wysyłana wartość 2. Która będzie wykorzystywana do obróbki danych.
+      Aby na początku użytkownik nie miał wybranego żadnego z listy rozwijanej tworzymy po prostu tworzymy pierwsza opcję pustą, bez żadnej etykiety -->
+
+      <h2>How was your services?</h2>
+
+      <select name="stars">
+        <option value="none"></option>
+        <option value="1">Great</option>
+        <option value="2">Okay</option>
+        <option value="3">Bad</option>
+      </select>
+
+      <h2>Any other feedback?</h2>
+
+      <textarea name="mytext" rows="8" cols="80"></textarea>
+
+      <input type="submit" name="" value="Submit">
+
+    </form>
+
+  </body>
+</html>

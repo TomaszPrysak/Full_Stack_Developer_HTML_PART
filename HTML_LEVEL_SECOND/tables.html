@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tablice</title>
+  </head>
+  <body>
+
+    <!-- Tworzymy tabelę w HTML -->
+    <!-- Znacznik TABLE świadczy o budowaniu przez nas tabeli
+    atrybut BORDER oznacza, że chcemy obramować naszą tabelę  -->
+
+    <!-- Kolejność tworzenia tabeli w HTML odbywa się poprzez:
+    1. utworzenie wiersza poprzez znacznik TR (Table Row)
+    2. utworzenie pomiędzy TR znacznika TD oznaczającego komórkę tabli, jeżeli umieścimy kilka TD w jednym znaczniku TD oznacza utworzenie w jednym wierszu kilku komórek obok siebie, pierwszy TD jest komórką najbgardziej po lewej itd
+    3. w ten sposób powstał wiersz, jeżeli umieścimy kolejny wiersz czyli nowy TR wówczas tworzymy kolejny wiersza
+    4. należy pamiętać aby w kolejnych wierszach TR umieszczać tyle samo komórek TD aby miec pewność, że powstaną równe kolumny w naszej tabeli
+    5. Dodatkowym znacznikiem jest THEAD oznaczający również zaczęcie budowy wiersza, jednak jest to wiersz z nagłówkami, bez tego znacznika również powstanie tabela
+    6. Do budowy komórek wewnątrz THEAD używamy TH i zasada jest taka sama jak wewnątrz TR -->
+
+    <table border="1">
+      <thead>
+        <th>Liczba</th>
+        <th>Kolor</th>
+        <th>Kraj</th>
+      </thead>
+      <tr>
+        <td>250</td>
+        <td>Red</td>
+        <td>USA</td>
+      </tr>
+      <tr>
+        <td>100</td>
+        <td>Blue</td>
+        <td>Poland</td>
+      </tr>
+    </table>
+
+  </body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Form1</title>
+  </head>
+  <body>
+
+    <!-- Tworzymy formularze w HTML! -->
+    <!-- Budowanie formularza odbywa się pomiędzy znacznikami FORM
+    A następnie umieszczamy między nim specjalny znacznik INPUT
+    który symbolizuje stworzenie funkcjonalności strony internetowej
+    w której użytkownik będzie wprowadzał swoje jakieś dane.
+
+    To jakiego rodzaju będzie to funkcjonalność zależy od argumentu TYPE:
+    text - po prostu tekst wpisusjemy w pole
+    email - przeglądarka będzie weryfikowała czy wprowadzony teskst jest adresem Email
+    password - będą wyświetlane kropki zamiast liter
+    color - tworzymy próbnik kolorów, pobieracz kolorów
+    submit - przycisk zatwierdzający
+    button - tworzy zwykły przycisk głównie służący do przycisków połączonych z javascript, aby aktywować jakiś skrypt
+    reset - przycisk do czyszczenia formularza
+    date - do ustawiania daty, która później jest pobierana
+    file - do załączania plików z dysku
+    tel - do wprowadzania numeru telefonu
+    url - do podawania adresu WWW
+    search - do podawania tekstu który będzie używany do wyszikiwania czegoś
+    radio - do tworzenia listy jednokrotnego wyboru
+    check - do tworzenia listy wielokrotnego wyboru
+    image - obrazek jako przycisk typu submit do akceptacji wprowadzonych danych
+    number - do wybierana spośród licz ograniczonych między liczbami min i max
+    range - do ustawiania wartości przy pomocy suwaka, możemy ustawić wartość min, max, step oraz defoult
+
+    Atrybut ACTONS służy do okreslania miejsca gdzie mają być wysłane dane z formularza
+
+    Atrybut METHOD służy do określania sposobu przesłania danych:
+    GET - widoczne informacje z wypełnionego formularza w adresie https
+    POST - niewidoczne informacje z wypełnionego formularza w adresie https -->
+
+    <form>
+
+      <h1>Log in</h1>
+      <h2>Please Input your Email and Password</h2>
+
+      <input type="email" name="useremail" value="Email Here">
+      <input type="password" name="userpassword" value="">
+      <input type="submit" name="" value="Click me">
+
+      <h1>Choose Color!</h1>
+      <h2>Click on Button!</h2>
+      <input type="color" name="" value="">
+
+      <h2>Enter some text</h2>
+      <input type="text" name="" value="Text goes here">
+
+      <h2>When is yours bday ?</h2>
+      <input type="date" name="bday">
+
+      <h2>Put yours file!</h2>
+      <input type="file" name="files">
+
+      <h2>How old are you ?</h2>
+      <input type="number" name="quantity" min="0" max="100">
+
+      <h2>Could you give me your phone number ?</h2>
+      <input type="tel" name="phone number">
+
+      <h2>Put your Website</h2>
+      <input type="url" name="homepage">
+
+      <h2>Let search something</h2>
+      <input type="search" name="googlesearch">
+
+      <h2>Image as submit button</h2>
+      <input type="image" src="C:\Users\Tomek\Desktop\Django_Bootcamp\HTML_LEVEL_ONE\django.png" alt="nie ma mnie ;|">
+
+      <!-- Uwaga! W przypadku tworzenia etykiet dla pól formularzy możemy użyć zwykłego tekstu napisanego w kodzie HTML obok znacznika oznaczającego pole formularza.
+      Jednak taka metoda powoduje małą czystość kodu.
+
+      Dużo lepszym sposobem jest używanie znacznika LABEL, wówczas w atrybucie FOR wpisujemy nazwę którą póżniej wpiszemy jako ID w znaczniku INPUT.
+      To spowoduje, że to co wpiszemy między LABEL będzie etykietą np radiobutton, checkbox lub text itd.
+
+      Zwróć uwagę na poniższe porównanie w używaniu etykiet w sposób dobry z LABEL i błędny w spostaci zwykłego tekstu. -->
+
+      <h2>What is your favorite fastfood:</h2>
+      <label for="pizza">Pizza</label>
+      <input id="pizza" type="checkbox" name="fastfood" value"pizza">
+      <br />
+      <input type="checkbox" name="fastfood">Burger
+      <br />
+      <input type="checkbox" name="fastfood">Hot-dog
+
+      <h2>Please select your english skill:</h2>
+      <label for="beginner">Beginner</label>
+      <input id="beginner" type="radio" name="english" value="beginners">
+      <br />
+      <input type="radio" name="english">Intermediate
+      <br />
+      <input type="radio" name="english">Advanced
+
+      <h2>Set up your hight</h2>
+      <label for="yourhigh">Your high:</label>
+      <input id="youthigh" type="range" name="hight" min="0" max="200" value="170">
+
+      <h2>Reset your form</h2>
+      <input type="reset">
+
+    </form>
+
+  </body>
+</html>
